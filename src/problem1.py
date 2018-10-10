@@ -51,7 +51,7 @@ def main():
     run_test_problem1a()
     run_test_problem1b()
     run_test_problem1c()
-    # run_test_problem1d()
+    run_test_problem1d()
     # TODO
 
 
@@ -790,9 +790,20 @@ def problem1d(strings):
       :rtype: str | -1
     """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # TODOne: 5. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
+
+    for k in range(len(strings)):
+        string = strings[k]
+        if is_prime(len(string)) is True:
+            return string
+    return -1
+
+
+
+
+
 
 
 ###############################################################################
