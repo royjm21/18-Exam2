@@ -5,7 +5,7 @@ This module contains:
   -- Methods you must implement for the Cloud object
   
 Authors: David Mutchler, Dave Fisher, Matt Boutell, their colleagues,
-         and PUT_YOUR_NAME_HERE.  October 2018.
+         and Jeremy Roy.  October 2018.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import time
@@ -25,10 +25,10 @@ def main():
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
 
-    # run_test_init()
-    # run_test_rain()
+    run_test_init()
+    run_test_rain()
     # run_test_get_total_rain_amount()
-    # run_test_merge_cloud()
+    run_test_merge_cloud()
 
 
 ###############################################################################
@@ -76,8 +76,13 @@ class Cloud(object):
           :type water: int | float
         """
         # ---------------------------------------------------------------------
-        # TODO: 2. Implement and test this method.
+        # TODOne: 2. Implement and test this method.
         # ---------------------------------------------------------------------
+        self.capacity = capacity
+        if water >= capacity:
+            self.water = capacity
+        else:
+            self.water = water
 
     def rain(self, rain_amount):
         """
@@ -122,9 +127,12 @@ class Cloud(object):
           :rtype: int | float
         """
         # ---------------------------------------------------------------------
-        # TODO: 3. Implement and test this method.
+        # TODOne: 3. Implement and test this method.
         # ---------------------------------------------------------------------
-
+        if rain_amount >= self.capacity:
+            self.water = 0
+        else:
+            self.water = self.water - rain_amount
 
     def get_total_rain_amount(self):
         """
@@ -192,6 +200,11 @@ class Cloud(object):
         # TODO: 5. Implement and test this method.
         # ---------------------------------------------------------------------
 
+        cloud1 = Cloud(self.capacity, self.water)
+        new_cloud = Cloud(cloud1.capacity + another_cloud.capacity, cloud1.water + another_cloud.water)
+        another_cloud.water = 0
+        another_cloud.capacity = 0
+        return new_cloud
 
 ###############################################################################
 # The TEST functions for the  Cloud  class begin here.
