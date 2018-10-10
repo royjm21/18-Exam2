@@ -49,7 +49,7 @@ def main():
     print(' to run the testing code as you complete the TODOs.')
 
     run_test_problem1a()
-    # run_test_problem1b()
+    run_test_problem1b()
     # run_test_problem1c()
     # run_test_problem1d()
 
@@ -396,10 +396,15 @@ def problem1b(strings):
       :rtype: int
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # TODOne: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
-
+    count = 0
+    for k in range(len(strings)):
+        string = strings[k]
+        if is_prime(len(string)) is True:
+            count += 1
+    return count
 
 def run_test_problem1c():
     """ Tests the   problem1c   function. """
